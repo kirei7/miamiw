@@ -16,6 +16,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Autowired
     private RemoteApiManager remoteApiManager;
 
+    @NegativeValue
     @Override
     public BigDecimal getMiamiTemperature() {
         var requestParams = Map.of(

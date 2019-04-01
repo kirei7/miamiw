@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Component
 public class SimpleAspect {
 
-    @Around("execution(* com.epam.rd.miamiw.service.WeatherServiceImpl.getMiamiTemperature())")
+    @Around("@annotation(com.epam.rd.miamiw.service.NegativeValue)")
     public Object evilAdvice(ProceedingJoinPoint pjp) throws Throwable {
         BigDecimal returnValue = (BigDecimal) pjp.proceed();
         return returnValue.abs().multiply(BigDecimal.valueOf(-1));
