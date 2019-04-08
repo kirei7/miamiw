@@ -19,9 +19,14 @@ public class WeatherServiceImpl implements WeatherService {
     @Loggable
     @Override
     public BigDecimal getMiamiTemperature() {
+        return getTemperatureByCity(CITY_NAME, Units.METRIC);
+    }
+
+    @Override
+    public BigDecimal getTemperatureByCity(String cityName, Units units) {
         var requestParams = Map.of(
-                OWAConstants.CITY_NAME, CITY_NAME,
-                OWAConstants.UNITS, Units.METRIC.name()
+                OWAConstants.CITY_NAME, cityName,
+                OWAConstants.UNITS, units.name()
         );
         return remoteApiManager.getWeather(requestParams).getTemperature();
     }
