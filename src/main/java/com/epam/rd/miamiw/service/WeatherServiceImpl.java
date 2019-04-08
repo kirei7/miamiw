@@ -11,7 +11,7 @@ import java.util.Map;
 @Service
 public class WeatherServiceImpl implements WeatherService {
 
-    public static final String CITY_NAME = "Miami";
+    private static final String CITY_NAME = "Miami";
 
     @Autowired
     private RemoteApiManager remoteApiManager;
