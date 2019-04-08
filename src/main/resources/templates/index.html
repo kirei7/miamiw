@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+
+    <title>Miami weather!</title>
+</head>
+<body>
+
+<main>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col text-center">
+                <h2>Miami temperature is:</h2>
+                <h1 th:text="${temperature} + '&#176'"></h1>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
