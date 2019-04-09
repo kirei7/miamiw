@@ -14,8 +14,9 @@ public class WeatherResource {
     @Autowired
     private WeatherService weatherService;
 
-    @RequestMapping()
+    @RequestMapping
     public BigDecimal getMiamiTemperature() {
         return weatherService.getMiamiTemperature();
     }
+
 }
