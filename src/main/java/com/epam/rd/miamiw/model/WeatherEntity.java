@@ -1,16 +1,19 @@
 package com.epam.rd.miamiw.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 
 @Builder
 @Getter
-@AllArgsConstructor
 public class WeatherEntity {
-    String city;
-    BigDecimal temperature;
+    private String city;
+    private BigDecimal temperature;
+
+    public WeatherEntity(String city, BigDecimal temperature) {
+        this.city = StringUtils.capitalize(city.toLowerCase());
+        this.temperature = temperature;
+    }
 }

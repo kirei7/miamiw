@@ -2,10 +2,10 @@ package com.epam.rd.miamiw.service;
 
 import com.epam.rd.miamiw.dao.OWAConstants;
 import com.epam.rd.miamiw.dao.RemoteApiManager;
+import com.epam.rd.miamiw.model.WeatherEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Map;
 
 @Service
@@ -16,18 +16,18 @@ public class WeatherServiceImpl implements WeatherService {
     @Autowired
     private RemoteApiManager remoteApiManager;
 
-    @Loggable
+
     @Override
-    public BigDecimal getMiamiTemperature() {
-        return getTemperatureByCity(CITY_NAME, Units.METRIC);
+    public WeatherEntity getMiamiWeather() {
+        return getWeatherByCity(CITY_NAME, Units.METRIC);
     }
 
     @Override
-    public BigDecimal getTemperatureByCity(String cityName, Units units) {
+    public WeatherEntity getWeatherByCity(String cityName, Units units) {
         var requestParams = Map.of(
                 OWAConstants.CITY_NAME, cityName,
                 OWAConstants.UNITS, units.name()
         );
-        return remoteApiManager.getWeather(requestParams).getTemperature();
+        return remoteApiManager.getWeather(requestParams);
     }
 }
